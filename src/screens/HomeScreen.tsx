@@ -40,6 +40,12 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
             >
                 <Text style={styles.buttonText}>Download Lists</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('LiveChat')}
+            >
+                <Text style={styles.buttonText}>Live Chat</Text>
+            </TouchableOpacity>
         </View>
     );
 };

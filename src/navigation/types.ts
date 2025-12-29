@@ -6,4 +6,5 @@ export type RootStackParamList = {
         title: string;
     };
     DownloadList: undefined;
+    LiveChat: undefined;
 };

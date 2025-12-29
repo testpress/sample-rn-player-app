@@ -11,6 +11,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParamList } from './src/navigation/types';
+import LiveChatScreen from './src/screens/LiveChatScreen';
 
 import HomeScreen from './src/screens/HomeScreen';
 import VideoScreen from './src/screens/VideoScreen';
@@ -51,6 +52,11 @@ function App() {
             name="DownloadList"
             component={DownloadListScreen}
             options={{ title: 'Downloads' }}
+          />
+          <Stack.Screen
+            name="LiveChat"
+            component={LiveChatScreen}
+            options={{ title: 'Live Chat' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
