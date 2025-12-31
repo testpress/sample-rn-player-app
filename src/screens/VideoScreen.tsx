@@ -7,7 +7,7 @@ import { TPStreamsPlayerView } from 'react-native-tpstreams';
 type VideoScreenProps = NativeStackScreenProps<RootStackParamList, 'Video'>;
 
 const VideoScreen: React.FC<VideoScreenProps> = ({ route }) => {
-    const { videoId, accessToken } = route.params;
+    const { videoId, accessToken, startInFullscreen } = route.params;
     const [isPlayerReady, setIsPlayerReady] = useState(false);
 
     // Delay player rendering to ensure screen layout is complete
@@ -24,7 +24,8 @@ const VideoScreen: React.FC<VideoScreenProps> = ({ route }) => {
                         videoId={videoId}
                         accessToken={accessToken}
                         enableDownload={true}
-                        shouldAutoPlay={false}
+                        shouldAutoPlay={true}
+                        startInFullscreen={startInFullscreen}
                         style={styles.player}
                     />
                 )}

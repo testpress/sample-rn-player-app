@@ -17,7 +17,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
                 onPress={() => navigation.navigate('Video', {
                     videoId: '42h2tZ5fmNf',
                     accessToken: '9327e2d0-fa13-4288-902d-840f32cd0eed',
-                    title: 'DRM Video'
+                    title: 'DRM Video',
+                    startInFullscreen: false,
                 })}
             >
                 <Text style={styles.buttonText}>DRM Video</Text>
@@ -28,10 +29,23 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
                 onPress={() => navigation.navigate('Video', {
                     videoId: 'ACGhHuD7DEa',
                     accessToken: '5bea276d-7882-4f8f-951a-c628622817e0',
-                    title: 'Non-DRM Video'
+                    title: 'Non-DRM Video',
+                    startInFullscreen: false,
                 })}
             >
                 <Text style={styles.buttonText}>Non-DRM Video</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('Video', {
+                    videoId: '42h2tZ5fmNf',
+                    accessToken: '9327e2d0-fa13-4288-902d-840f32cd0eed',
+                    title: 'Launch in Fullscreen',
+                    startInFullscreen: true,
+                })}
+            >
+                <Text style={styles.buttonText}>Launch in Fullscreen</Text>
             </TouchableOpacity>
 
             <TouchableOpacity

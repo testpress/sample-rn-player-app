@@ -9,7 +9,7 @@ PODS:
   - hermes-engine (0.14.0):
     - hermes-engine/Pre-built (= 0.14.0)
   - hermes-engine/Pre-built (0.14.0)
-  - M3U8Kit (1.1.0)
+  - M3U8Kit (1.2.0)
   - RCT-Folly (2024.11.18.00):
     - boost
     - DoubleConversion
@@ -2664,7 +2664,7 @@ PODS:
   - Sentry/Core (8.50.2)
   - SocketRocket (0.7.1)
   - Toast-Swift (5.1.1)
-  - TPStreamsRNPlayerView (1.1.4-dev.0):
+  - TPStreamsRNPlayerView (1.1.4-dev.1):
     - boost
     - DoubleConversion
     - fast_float
@@ -2691,11 +2691,11 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - SocketRocket
-    - TPStreamsSDK (= 1.2.15)
+    - TPStreamsSDK (= 1.2.16)
     - Yoga
-  - TPStreamsSDK (1.2.15):
+  - TPStreamsSDK (1.2.16):
     - Alamofire (~> 5.9.0)
-    - M3U8Kit (~> 1.1.0)
+    - M3U8Kit (~> 1.2.0)
     - ReachabilitySwift (~> 5.2.2)
     - RealmSwift (~> 10.54.2)
     - Sentry (~> 8.50.0)
@@ -2976,7 +2976,7 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   hermes-engine: f7df224b71ff88edc18e1075360f9d377e1ad0b5
-  M3U8Kit: d0f2dae9736a35fc44b54bea10aeebcaa75215b3
+  M3U8Kit: 5a0adeab31b42d24ec76c0620971eac130903984
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: 2b70c6e3abe00396cefd8913efbf6a2db01a2b36
   RCTRequired: f3540eee8094231581d40c5c6d41b0f170237a81
@@ -3056,8 +3056,8 @@ SPEC CHECKSUMS:
   Sentry: d95f5f3b32d01324b3e27d3c52747005302cc026
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
-  TPStreamsRNPlayerView: e118186023d4dfb9d2c63c67a79e4e8e634e0083
-  TPStreamsSDK: 84a02615df8ba421f88bae9751d4ed7138b6b104
+  TPStreamsRNPlayerView: 2132a0bfd2d14aba75ace72d731e1ec6070eef15
+  TPStreamsSDK: e23c5a8c7543a2d9ec323e6ce1c509a832854176
   Yoga: faec420ba5f8a2bd196f26048a0557882d40e5b9
 
 PODFILE CHECKSUM: 9daceed9e20fb5acad451c1d6e5286318864fa5b

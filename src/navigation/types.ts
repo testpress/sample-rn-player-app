@@ -4,6 +4,7 @@ export type RootStackParamList = {
         videoId: string;
         accessToken: string;
         title: string;
+        startInFullscreen: boolean
     };
     DownloadList: undefined;
     LiveChat: undefined;
