@@ -90,6 +90,19 @@ const DownloadListScreen: React.FC = () => {
         );
     };
 
+    const handlePlay = (item: DownloadItem) => {
+        const { videoId, title } = item;
+
+        const accessToken = "downloaded"
+
+        navigation.navigate('Video', {
+            videoId,
+            accessToken,
+            title: item.title,
+            startInFullscreen: false,
+        });
+    };
+
     const getStatusColor = (state: string) => {
         switch (state) {
             case 'Completed':
@@ -178,6 +191,16 @@ const DownloadListScreen: React.FC = () => {
                                     <Text style={styles.controlButtonText}>
                                         {isDownloading ? 'Pause' : 'Resume'}
                                     </Text>
+                                </TouchableOpacity>
+                            )}
+
+                            {isCompleted && (
+                                <TouchableOpacity
+                                    style={[styles.actionButton, styles.playButton]}
+                                    onPress={() => handlePlay(item)}
+                                >
+                                    <Icon name="play" size={14} color="#FFFFFF" style={styles.buttonIcon} />
+                                    <Text style={styles.controlButtonText}>Play</Text>
                                 </TouchableOpacity>
                             )}
 
@@ -369,6 +392,9 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '600',
         color: '#FFFFFF',
+    },
+    playButton: {
+        backgroundColor: '#34C759',
     },
     deleteButton: {
         backgroundColor: '#FF3B30',
