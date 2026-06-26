@@ -1870,7 +1870,7 @@
   dependencies:
     "@sentry/core" "10.61.0"
 
-"@sentry/react-native@^8.14.0":
+"@sentry/react-native@^8.11.1":
   version "8.16.0"
   resolved "https://registry.yarnpkg.com/@sentry/react-native/-/react-native-8.16.0.tgz#7b33511a4e5959abe6ab436f8e1eed2132d0279c"
   integrity sha512-5fAEyAO+Nr+na778Q/Kc33YNBdUcvE/r2UACaklcZCHdTMcjLrvlQXrlK4sOkXVKQBmdc6RWNoMSBg1Nc3jXEw==
@@ -5723,7 +5723,7 @@ react-native-toast-message@^2.3.3:
   resolved "https://registry.yarnpkg.com/react-native-toast-message/-/react-native-toast-message-2.3.3.tgz#e301508d386a9902ff6b4559ecc6674f8cfdf97a"
   integrity sha512-4IIUHwUPvKHu4gjD0Vj2aGQzqPATiblL1ey8tOqsxOWRPGGu52iIbL8M/mCz4uyqecvPdIcMY38AfwRuUADfQQ==
 
-react-native-tpstreams@^1.1.9:
+react-native-tpstreams@^1.1.17:
   version "1.1.17"
   resolved "https://registry.yarnpkg.com/react-native-tpstreams/-/react-native-tpstreams-1.1.17.tgz#55c707d3801147f5430c3d8f4b73f6bed6895c50"
   integrity sha512-lgaSl27Wcz+AzuJuIBrVCGzr3DgAIwnWLu+xIdEBE/1jmPWfZbzAlX3kUjzWUep+6GrWC8qoscCLZ7AWk4FWsQ==
