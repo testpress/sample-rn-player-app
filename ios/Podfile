@@ -30,5 +30,52 @@ target 'SampleRNPlayerApp' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+
+    # Xcode 26: CopySwiftLibs runs before "Bundle React Native code and images"
+    # phase, so the Hermes debug dylib doesn't exist yet → build fails.
+    # With static framework linkage, Swift stdlib is linked into the binary,
+    # so embedding Swift standard libraries is unnecessary. Disabling it
+    # avoids the CopySwiftLibs scanning the debug dylib entirely.
+    installer.aggregate_targets.first.user_targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'NO'
+      end
+    end
+
+    # Fix duplicate Assets.car: Pods resources script finds & compiles the
+    # app's Images.xcassets (AppIcon only) alongside Pod xcassets, but the
+    # main target's Resources phase also compiles it → duplicate output.
+    # Remove Images.xcassets from the main target's Resources phase since
+    # the Pods script already handles it.
+    project = installer.aggregate_targets.first.user_project
+    app_target = project.native_targets.first
+    if app_target
+      resources_phase = app_target.resources_build_phase
+      files_to_remove = resources_phase.files.select do |f|
+        f.file_ref&.path&.end_with?('/Images.xcassets') || f.file_ref&.path == 'Images.xcassets'
+      end
+      files_to_remove.each { |f| resources_phase.remove_build_file(f) }
+      project.save
+    end
+
+    # Fix RNSentryExperimentalOptions.m: with `use_frameworks! :linkage => :static`,
+    # `@import Sentry;` doesn't expose Swift properties (enableLogs,
+    # enableUnhandledCPPExceptionsV2). Replace with direct header imports
+    # that include the generated Swift-ObjC header.
+    rn_sentry_path = File.expand_path(
+      '../../node_modules/@sentry/react-native/ios/RNSentryExperimentalOptions.m',
+      installer.sandbox.root
+    )
+    if File.exist?(rn_sentry_path)
+      content = File.read(rn_sentry_path)
+      unless content.include?('Sentry-Swift.h')
+        modified = content.gsub(
+          '@import Sentry;',
+          '#import <Sentry/Sentry.h>' + "\n" + '#import <Sentry/Sentry-Swift.h>'
+        )
+        File.write(rn_sentry_path, modified)
+        Pod::UI.puts "Patched RNSentryExperimentalOptions.m → replaced @import Sentry with direct headers".green
+      end
+    end
   end
 end

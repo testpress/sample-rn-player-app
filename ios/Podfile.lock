@@ -1895,7 +1895,7 @@ PODS:
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
     - SocketRocket
-  - react-native-safe-area-context (5.6.2):
+  - react-native-safe-area-context (5.8.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -1913,8 +1913,8 @@ PODS:
     - React-graphics
     - React-ImageManager
     - React-jsi
-    - react-native-safe-area-context/common (= 5.6.2)
-    - react-native-safe-area-context/fabric (= 5.6.2)
+    - react-native-safe-area-context/common (= 5.8.0)
+    - react-native-safe-area-context/fabric (= 5.8.0)
     - React-NativeModulesApple
     - React-RCTFabric
     - React-renderercss
@@ -1925,7 +1925,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-safe-area-context/common (5.6.2):
+  - react-native-safe-area-context/common (5.8.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -1953,7 +1953,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-safe-area-context/fabric (5.6.2):
+  - react-native-safe-area-context/fabric (5.8.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -1982,7 +1982,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-webview (13.16.0):
+  - react-native-webview (13.16.1):
     - boost
     - DoubleConversion
     - fast_float
@@ -2572,7 +2572,7 @@ PODS:
   - Realm/Headers (10.54.6)
   - RealmSwift (10.54.6):
     - Realm (= 10.54.6)
-  - RNScreens (4.19.0):
+  - RNScreens (4.25.2):
     - boost
     - DoubleConversion
     - fast_float
@@ -2599,10 +2599,10 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNScreens/common (= 4.19.0)
+    - RNScreens/common (= 4.25.2)
     - SocketRocket
     - Yoga
-  - RNScreens/common (4.19.0):
+  - RNScreens/common (4.25.2):
     - boost
     - DoubleConversion
     - fast_float
@@ -2629,6 +2629,36 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
+    - SocketRocket
+    - Yoga
+  - RNSentry (8.14.0):
+    - boost
+    - DoubleConversion
+    - fast_float
+    - fmt
+    - glog
+    - hermes-engine
+    - RCT-Folly
+    - RCT-Folly/Fabric
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Sentry (= 9.16.1)
     - SocketRocket
     - Yoga
   - RNVectorIcons (10.3.0):
@@ -2659,12 +2689,11 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - Sentry (8.50.2):
-    - Sentry/Core (= 8.50.2)
-  - Sentry/Core (8.50.2)
+  - Sentry (9.16.1):
+    - Sentry/Core (= 9.16.1)
+  - Sentry/Core (9.16.1)
   - SocketRocket (0.7.1)
-  - Toast-Swift (5.1.1)
-  - TPStreamsRNPlayerView (1.1.4-dev.1):
+  - TPStreamsRNPlayerView (1.1.17):
     - boost
     - DoubleConversion
     - fast_float
@@ -2691,15 +2720,14 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - SocketRocket
-    - TPStreamsSDK (= 1.2.16)
+    - TPStreamsSDK (= 1.2.30)
     - Yoga
-  - TPStreamsSDK (1.2.16):
+  - TPStreamsSDK (1.2.30):
     - Alamofire (~> 5.9.0)
     - M3U8Kit (~> 1.2.0)
     - ReachabilitySwift (~> 5.2.2)
     - RealmSwift (~> 10.54.2)
-    - Sentry (~> 8.50.0)
-    - Toast-Swift (~> 5.1.1)
+    - Sentry (< 10, >= 8.50)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2783,6 +2811,7 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios/ReactCodegen`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - "RNSentry (from `../node_modules/@sentry/react-native`)"
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - SocketRocket (~> 0.7.1)
   - TPStreamsRNPlayerView (from `../node_modules/react-native-tpstreams`)
@@ -2797,7 +2826,6 @@ SPEC REPOS:
     - RealmSwift
     - Sentry
     - SocketRocket
-    - Toast-Swift
     - TPStreamsSDK
 
 EXTERNAL SOURCES:
@@ -2960,6 +2988,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSentry:
+    :path: "../node_modules/@sentry/react-native"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   TPStreamsRNPlayerView:
@@ -2975,7 +3005,7 @@ SPEC CHECKSUMS:
   FBLazyVector: a293a88992c4c33f0aee184acab0b64a08ff9458
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
-  hermes-engine: f7df224b71ff88edc18e1075360f9d377e1ad0b5
+  hermes-engine: 2de1619fb9ed2726f1d62bdef2f04a312265bbdf
   M3U8Kit: 5a0adeab31b42d24ec76c0620971eac130903984
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: 2b70c6e3abe00396cefd8913efbf6a2db01a2b36
@@ -3014,8 +3044,8 @@ SPEC CHECKSUMS:
   React-logger: 9e597cbeda7b8cc8aa8fb93860dade97190f69cc
   React-Mapbuffer: a1ac1f8640a6ab91429b48f8849cdf090c1d3778
   React-microtasksnativemodule: d1b99ceae24a3d6db4720504626722584f589d18
-  react-native-safe-area-context: 0a3b034bb63a5b684dd2f5fffd3c90ef6ed41ee8
-  react-native-webview: cdce419e8022d0ef6f07db21890631258e7a9e6e
+  react-native-safe-area-context: 7794f18549493f369e4ca4b3cd66843bd050ac66
+  react-native-webview: 83c663c5bdf1357d3e7c00986260cb888ea0e328
   React-NativeModulesApple: cd394496f577dc1d8435b8fd7ea6c0586e9b9097
   React-networking: c6635aefc3c0efd73e5eaabd16faf7f675b812b6
   React-oscompat: aedc0afbded67280de6bb6bfac8cfde0389e2b33
@@ -3051,15 +3081,15 @@ SPEC CHECKSUMS:
   ReactCommon: 913c93ca20654c90cc57a3dd9e291b4ef9956e54
   Realm: b1b3bc68162fa242132eb7eefbf91d7c40f36a85
   RealmSwift: 456cfd82a4f23dff8e3456980999331ab69bbf3e
-  RNScreens: d6413aeb1878cdafd3c721e2c5218faf5d5d3b13
+  RNScreens: cfb11dc33b79eac5e09a10b25e1ad0c2499d5b8b
+  RNSentry: 27286fd958704c693444a4972245b52755613da6
   RNVectorIcons: e355dd0998d6b9020e560922a66614eb9636501b
-  Sentry: d95f5f3b32d01324b3e27d3c52747005302cc026
+  Sentry: e5d82a3c1f2d951f75c04c57215a0abb1facbd51
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
-  Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
-  TPStreamsRNPlayerView: 2132a0bfd2d14aba75ace72d731e1ec6070eef15
-  TPStreamsSDK: e23c5a8c7543a2d9ec323e6ce1c509a832854176
+  TPStreamsRNPlayerView: 5e12bd4c02a0a745f3eb1b24923e05199fa55ad0
+  TPStreamsSDK: bbbf239100ac21f51c3a2cb275bb81fb441d03fc
   Yoga: faec420ba5f8a2bd196f26048a0557882d40e5b9
 
-PODFILE CHECKSUM: 9daceed9e20fb5acad451c1d6e5286318864fa5b
+PODFILE CHECKSUM: fb3d8b8f0df05b1d69b8bc6eb1840b6d65a0faeb
 
 COCOAPODS: 1.16.2

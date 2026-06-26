@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StatusBar, useColorScheme } from 'react-native';
+import { StatusBar, useColorScheme, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -16,6 +16,37 @@ import LiveChatScreen from './src/screens/LiveChatScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import VideoScreen from './src/screens/VideoScreen';
 import DownloadListScreen from './src/screens/DownloadListScreen';
+import * as Sentry from '@sentry/react-native';
+
+Sentry.init({
+  dsn: 'https://344854d7be5b2276b8f2113aa73bce08@o4511568700637184.ingest.us.sentry.io/4511585727938560',
+
+  // Adds more context data to events (IP address, cookies, user, etc.)
+  // For more information, visit: https://docs.sentry.io/platforms/react-native/data-management/data-collected/
+  sendDefaultPii: true,
+
+  // Enable Logs
+  enableLogs: true,
+
+  // Enable SDK debug logging (useful for diagnosing setup issues)
+  debug: __DEV__,
+
+  // iOS workaround: native Sentry Cocoa SDK transport silently drops events
+  // on RN new architecture. Using JS fetch() transport instead.
+  // Android continues to use the native transport (works correctly).
+  enableNative: Platform.OS !== 'ios',
+
+  // Configure Session Replay
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1,
+  integrations: [
+    Sentry.mobileReplayIntegration(),
+    Sentry.feedbackIntegration(),
+  ],
+
+  // uncomment the line below to enable Spotlight (https://spotlightjs.com)
+  // spotlight: __DEV__,
+});
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -64,4 +95,4 @@ function App() {
   );
 }
 
-export default App;
+export default Sentry.wrap(App);

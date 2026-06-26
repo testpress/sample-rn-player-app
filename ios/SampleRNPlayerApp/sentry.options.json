@@ -1,0 +1,10 @@
+{
+  "dsn": "https://344854d7be5b2276b8f2113aa73bce08@o4511568700637184.ingest.us.sentry.io/4511585727938560",
+  "sendDefaultPii": true,
+  "enableTracing": true,
+  "tracesSampleRate": 1.0,
+  "profilesSampleRate": 1.0,
+  "enableCaptureFailedRequests": true,
+  "replaysSessionSampleRate": 0.1,
+  "replaysOnErrorSampleRate": 1.0
+}
