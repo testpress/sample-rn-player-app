@@ -31,4 +31,75 @@ target 'SampleRNPlayerApp' do
       # :ccache_enabled => true
     )
   end
+
+  # Runs after the user project has been integrated, which is the only point at
+  # which the generated "[CP] Copy Pods Resources" script and its xcfilelists
+  # exist and can be adjusted.
+  post_integrate do |installer|
+    fix_duplicate_bundle_resources(installer)
+  end
+end
+
+# Some pods ship resources that CocoaPods copies verbatim into the app bundle
+# root. The names of three of those collide with files the app target already
+# produces, and Xcode refuses to build when two build tasks claim the same
+# output:
+#
+#   TPStreamsSDKAssets.xcassets -> Assets.car          (collides with Images.xcassets)
+#   */PrivacyInfo.xcprivacy     -> PrivacyInfo.xcprivacy (collides with the app's own)
+#
+# Without this the build fails with:
+#   error: Multiple commands produce 'SampleRNPlayerApp.app/Assets.car'
+#   error: Multiple commands produce 'SampleRNPlayerApp.app/PrivacyInfo.xcprivacy'
+#
+# The fix is purely subtractive: the three flattened copies are dropped from the
+# "[CP] Copy Pods Resources" step, so the app keeps building its own
+# Images.xcassets and its own PrivacyInfo.xcprivacy exactly as it did before.
+# Nothing is added to the app target, so the shipped UI is unchanged.
+def fix_duplicate_bundle_resources(installer)
+  duplicates = [
+    'Pods/TPStreamsSDK/Source/TPStreamsSDKAssets.xcassets',
+    'Pods/DSFRegex/Sources/DSFRegex/PrivacyInfo.xcprivacy',
+    'Pods/SwiftSubtitles/Sources/SwiftSubtitles/PrivacyInfo.xcprivacy',
+  ]
+
+  # Clean up after an earlier version of this hook that added the pod asset
+  # catalog to the app's Resources phase, so the project returns to its default
+  # resource set.
+  app_project = installer.aggregate_targets.map(&:user_project).compact.first
+  app_target = app_project&.native_targets&.find { |t| t.name == 'SampleRNPlayerApp' }
+  if app_target
+    duplicates.map { |p| File.basename(p) }.each do |name|
+      refs = app_project.main_group.files.select { |f| File.basename(f.path.to_s) == name }
+      refs.each do |ref|
+        app_target.resources_build_phase.files
+                .select { |bf| bf.file_ref == ref }
+                .each { |bf| app_target.resources_build_phase.remove_build_file(bf) }
+        ref.remove_from_project
+      end
+    end
+    app_project.save
+  end
+
+  duplicate_names = duplicates.map { |p| File.basename(p) }
+  duplicate_outputs = duplicate_names.map { |n| n.end_with?('.xcassets') ? 'Assets.car' : n }
+  support_files = Dir.glob(File.join(__dir__, 'Pods', 'Target Support Files', 'Pods-*', '*-resources*'))
+
+  support_files.each do |file|
+    next unless File.file?(file)
+
+    contents = File.read(file)
+    updated =
+      if file.end_with?('.sh')
+        contents.lines.reject { |l| l.include?('install_resource') && duplicate_names.any? { |n| l.include?(n) } }.join
+      elsif file.end_with?('input-files.xcfilelist')
+        contents.lines.reject { |l| duplicate_names.any? { |n| l.include?(n) } }.join
+      elsif file.end_with?('output-files.xcfilelist')
+        contents.lines.reject { |l| duplicate_outputs.any? { |n| l.strip.end_with?("/#{n}") } }.join
+      else
+        contents
+      end
+
+    File.write(file, updated) if updated != contents
+  end
 end

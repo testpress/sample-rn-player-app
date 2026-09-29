@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.9.1)
   - boost (1.84.0)
   - DoubleConversion (1.1.6)
+  - DSFRegex (3.4.0)
   - fast_float (8.0.0)
   - FBLazyVector (0.83.0)
   - fmt (11.0.2)
@@ -1895,7 +1896,7 @@ PODS:
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
     - SocketRocket
-  - react-native-safe-area-context (5.6.2):
+  - react-native-safe-area-context (5.10.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -1913,8 +1914,8 @@ PODS:
     - React-graphics
     - React-ImageManager
     - React-jsi
-    - react-native-safe-area-context/common (= 5.6.2)
-    - react-native-safe-area-context/fabric (= 5.6.2)
+    - react-native-safe-area-context/common (= 5.10.0)
+    - react-native-safe-area-context/fabric (= 5.10.0)
     - React-NativeModulesApple
     - React-RCTFabric
     - React-renderercss
@@ -1925,7 +1926,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-safe-area-context/common (5.6.2):
+  - react-native-safe-area-context/common (5.10.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -1953,7 +1954,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-safe-area-context/fabric (5.6.2):
+  - react-native-safe-area-context/fabric (5.10.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -1982,7 +1983,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-webview (13.16.0):
+  - react-native-webview (13.17.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -2567,12 +2568,12 @@ PODS:
     - React-perflogger (= 0.83.0)
     - React-utils (= 0.83.0)
     - SocketRocket
-  - Realm (10.54.6):
-    - Realm/Headers (= 10.54.6)
-  - Realm/Headers (10.54.6)
-  - RealmSwift (10.54.6):
-    - Realm (= 10.54.6)
-  - RNScreens (4.19.0):
+  - Realm (20.0.6):
+    - Realm/Headers (= 20.0.6)
+  - Realm/Headers (20.0.6)
+  - RealmSwift (20.0.6):
+    - Realm (= 20.0.6)
+  - RNScreens (4.25.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -2599,10 +2600,10 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNScreens/common (= 4.19.0)
+    - RNScreens/common (= 4.25.0)
     - SocketRocket
     - Yoga
-  - RNScreens/common (4.19.0):
+  - RNScreens/common (4.25.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -2659,12 +2660,15 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - Sentry (8.50.2):
-    - Sentry/Core (= 8.50.2)
-  - Sentry/Core (8.50.2)
+  - Sentry (9.19.1):
+    - Sentry/Core (= 9.19.1)
+  - Sentry/Core (9.19.1)
   - SocketRocket (0.7.1)
-  - Toast-Swift (5.1.1)
-  - TPStreamsRNPlayerView (1.1.4-dev.1):
+  - SwiftSubtitles (1.8.1):
+    - DSFRegex (~> 3.4.0)
+    - TinyCSV (~> 1.0.0)
+  - TinyCSV (1.0.1)
+  - TPStreamsRNPlayerView (1.1.27):
     - boost
     - DoubleConversion
     - fast_float
@@ -2691,15 +2695,15 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - SocketRocket
-    - TPStreamsSDK (= 1.2.16)
+    - TPStreamsSDK (= 1.2.43)
     - Yoga
-  - TPStreamsSDK (1.2.16):
+  - TPStreamsSDK (1.2.43):
     - Alamofire (~> 5.9.0)
     - M3U8Kit (~> 1.2.0)
     - ReachabilitySwift (~> 5.2.2)
-    - RealmSwift (~> 10.54.2)
-    - Sentry (~> 8.50.0)
-    - Toast-Swift (~> 5.1.1)
+    - RealmSwift (~> 20.0.4)
+    - Sentry (< 10, >= 8.50)
+    - SwiftSubtitles (= 1.8.1)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2791,13 +2795,15 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DSFRegex
     - M3U8Kit
     - ReachabilitySwift
     - Realm
     - RealmSwift
     - Sentry
     - SocketRocket
-    - Toast-Swift
+    - SwiftSubtitles
+    - TinyCSV
     - TPStreamsSDK
 
 EXTERNAL SOURCES:
@@ -2971,11 +2977,12 @@ SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
+  DSFRegex: d32f541b5106c52710b6525b3ac73b63f867ca49
   fast_float: b32c788ed9c6a8c584d114d0047beda9664e7cc6
   FBLazyVector: a293a88992c4c33f0aee184acab0b64a08ff9458
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
-  hermes-engine: f7df224b71ff88edc18e1075360f9d377e1ad0b5
+  hermes-engine: 2de1619fb9ed2726f1d62bdef2f04a312265bbdf
   M3U8Kit: 5a0adeab31b42d24ec76c0620971eac130903984
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: 2b70c6e3abe00396cefd8913efbf6a2db01a2b36
@@ -3014,8 +3021,8 @@ SPEC CHECKSUMS:
   React-logger: 9e597cbeda7b8cc8aa8fb93860dade97190f69cc
   React-Mapbuffer: a1ac1f8640a6ab91429b48f8849cdf090c1d3778
   React-microtasksnativemodule: d1b99ceae24a3d6db4720504626722584f589d18
-  react-native-safe-area-context: 0a3b034bb63a5b684dd2f5fffd3c90ef6ed41ee8
-  react-native-webview: cdce419e8022d0ef6f07db21890631258e7a9e6e
+  react-native-safe-area-context: b0fc3ec689477fca9879f78c9ba584dc1ca11af5
+  react-native-webview: fb55e85095e22e6cfb814a2b122b4860de91a620
   React-NativeModulesApple: cd394496f577dc1d8435b8fd7ea6c0586e9b9097
   React-networking: c6635aefc3c0efd73e5eaabd16faf7f675b812b6
   React-oscompat: aedc0afbded67280de6bb6bfac8cfde0389e2b33
@@ -3049,17 +3056,18 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: ebcf3a78dc1bcdf054c9e8d309244bade6b31568
   ReactCodegen: 0c8601ce03eb3f724f4d251e4aa158555bf20942
   ReactCommon: 913c93ca20654c90cc57a3dd9e291b4ef9956e54
-  Realm: b1b3bc68162fa242132eb7eefbf91d7c40f36a85
-  RealmSwift: 456cfd82a4f23dff8e3456980999331ab69bbf3e
-  RNScreens: d6413aeb1878cdafd3c721e2c5218faf5d5d3b13
+  Realm: e63b3586386f7ab655dc890a9d0878870ebb1837
+  RealmSwift: 7955ebe63fa6e46cdaea394fa17758d1028dd594
+  RNScreens: 2b6107925ee4e14a9b2eb0dfb52fe25223aa64d7
   RNVectorIcons: e355dd0998d6b9020e560922a66614eb9636501b
-  Sentry: d95f5f3b32d01324b3e27d3c52747005302cc026
+  Sentry: e4588d62ac3fd3c82652bb7c8a215ec8c3de776b
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
-  Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
-  TPStreamsRNPlayerView: 2132a0bfd2d14aba75ace72d731e1ec6070eef15
-  TPStreamsSDK: e23c5a8c7543a2d9ec323e6ce1c509a832854176
+  SwiftSubtitles: db6159ae70a180a1cfa22dd4eb845e25c000b271
+  TinyCSV: f6124d52f5cdc61cdda211b7578884185206e80e
+  TPStreamsRNPlayerView: 569131f0eb92186e0cffc7e59a680638da5a3f46
+  TPStreamsSDK: 205fc53e64e85aecf63dd665c5564947e4086bca
   Yoga: faec420ba5f8a2bd196f26048a0557882d40e5b9
 
-PODFILE CHECKSUM: 9daceed9e20fb5acad451c1d6e5286318864fa5b
+PODFILE CHECKSUM: 705f0c9d9a0c7a188c70fcb1e41238f8b2a49ba3
 
-COCOAPODS: 1.16.2
+COCOAPODS: 1.15.2
