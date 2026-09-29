@@ -20,8 +20,14 @@ import {
     getAllDownloads,
     type DownloadItem,
 } from 'react-native-tpstreams';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/types';
 
-const DownloadListScreen: React.FC = () => {
+type DownloadListScreenProps = {
+    navigation: NativeStackNavigationProp<RootStackParamList, 'DownloadList'>;
+};
+
+const DownloadListScreen: React.FC<DownloadListScreenProps> = ({ navigation }) => {
     const [downloads, setDownloads] = useState<DownloadItem[]>([]);
     const [loading, setLoading] = useState(true);
 

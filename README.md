@@ -2,7 +2,7 @@
 
 A sample React Native application demonstrating the integration of TPStreams video player with download management and navigation.
 
-**TPStreams SDK:** [react-native-tpstreams](https://www.npmjs.com/package/react-native-tpstreams)
+**TPStreams SDK:** [react-native-tpstreams](https://www.npmjs.com/package/react-native-tpstreams) (`1.1.27`)
 
 ## Prerequisites
 
